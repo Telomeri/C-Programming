@@ -1,0 +1,12 @@
+This the instruction for file cleaning program written in c, which will remove the comments and empty rows from file, making it "cleaner".
+
+1. To compile the program, locate the file with cmd and write "make all", which will spawn the needed .o files and the clean_files file.
+2. After this, you can start the program by writing "./clean_files" at the commandline
+3. A dialog will pop up asking you to enter the file name you want cleaned.
+4. Move the file you want cleaned to the root folder (the location of this program), and enter its name into the cmd, don't forget the file type (e.g. .c)
+5. If the file clean is succesful, it will print text saying so, if it was not, it will print the reason for this.
+6. You can enter as many files as you want, and when you are done either write exit or use CTRL + C.
+7. The files that have been cleaned will end with .clean, for example "helloworld.c.clean"
+8. If you want to remove the .o files, you can use "make clean", which will remove all the .o and log files.
+9. You can see the programs steps by checking the log file, but note that it will be deleted when you give the "make clean" command
+
