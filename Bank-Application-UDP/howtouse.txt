@@ -1,0 +1,36 @@
+This program is ment to be an excercise on the following topics: 
+1. Communication between processes/programs
+2. Thread creation
+3. Use of mutex (mutual exclusion)
+4. Thread Synchronization
+
+The program consists of 2 executables: bank_connect and client_connect.
+On top of these the program also creates log file and a folder which is ment for storing bank accounts.
+
+How to compile:
+make all -> Makes both bank_connect and client_connect
+make bank_server -> Only makes bank_connect
+make client -> Only makes client_connect
+make clean -> Cleans all object files, executables and log files
+make clean_all -> On top of clean features, also removes all bank accounts and the folder
+
+bank_connect N_DESK:
+Opens a bank server with N amount of desks (threads) for customer processing. This program prints everything the user does, and whether it was
+successful or not. It will let the user know when it has connected to the server, but after this it will not communicate with the user.
+This is an issue that I was not able to fix, so the communication is nearly impossible using only client side. You have to be able to see 
+also the server side.
+
+client connect:
+Connects the client to server if its open. User can only join the server if there are desks (threads) availabe. If there is not, the user
+cannot join and will wait for answer for ever. Also a known issue in the program, which could have been implemented by adding sleep to client,
+and making a thread send a request every few seconds. I did not add this feature because of mismanaging of schedule.
+Commands that the client can give:
+l : prints the current users balance to bank server
+w INT : removes INT amount of money from the account, fails if there is not enough balance
+d INT: deposits a certain amount of money
+exit: exits the program and gives your place to another client after all simultaneous clients have finished.
+
+The account data is stored as txt file with including a balance number. This could have all been put to a single file, but 
+locking them would have been difficult. The can use the same account AFTER the bank has been reset.
+
+Why this program has these limitations will be explored on the document file.
